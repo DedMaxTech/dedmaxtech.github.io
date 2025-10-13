@@ -4,8 +4,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 
 const config: Config = {
-  title: 'Полезная инфа от Деда Максима', // DedMax
-  tagline: '',
+  title: 'DedMax Guides', // DedMax
+  tagline: 'Гайды от Деда Максима',
   favicon: 'img/favicon.ico',
 
   future: {v4: true,},

@@ -14,9 +14,9 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
-          {siteConfig.title}
+          {siteConfig.tagline}
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        {/* <p className="hero__subtitle">{siteConfig.tagline}</p> */}
       </div>
     </header>
   );
@@ -30,11 +30,11 @@ export default function Home(): ReactNode {
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main className={styles.heroBanner}>
-        <h2>Здесь будет сборник какой нибудь полезной информации и самописных гайдов</h2>
+        <h2>Здесь будет сборник какой нибудь полезной информации и гайдов</h2>
         <p>Потом тут будет нормальный самописный сайт, а пока что:</p>
         <Link
             className="button button--primary button--lg"
-            to="/docs/intro">
+            to="/c/intro">
             Начало работы с сишкой
           </Link>
       </main>
