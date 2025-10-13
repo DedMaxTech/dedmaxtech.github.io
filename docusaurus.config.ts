@@ -22,6 +22,18 @@ const config: Config = {
     defaultLocale: 'ru',
     locales: ['ru'],
   },
+  presets: [
+    [
+      'classic',
+      {
+        docs: false,
+        blog: false,
+        theme: {
+          customCss: './src/css/custom.css',
+        },
+      } satisfies Preset.Options,
+    ],
+  ],
   plugins: [
     [
       '@docusaurus/plugin-content-docs',
@@ -45,23 +57,8 @@ const config: Config = {
         showLastUpdateTime: true,
       },
     ],
-    // при необходимости добавляйте другие языки по аналогии
   ],
-  presets: [
-    [
-      'classic',
-      {
-        docs: false,
-        blog: false,
-        theme: {
-          customCss: './src/css/custom.css',
-        },
-      } satisfies Preset.Options,
-    ],
-  ],
-
   themeConfig: {
-    // Replace with your project's social card
     image: 'img/logo.png',
     colorMode: {
       respectPrefersColorScheme: true,
@@ -102,7 +99,7 @@ const config: Config = {
     },
     prism: {
       theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      darkTheme: prismThemes.oneDark,
     },
   } satisfies Preset.ThemeConfig,
 };
