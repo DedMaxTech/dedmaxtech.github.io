@@ -64,7 +64,7 @@ const config: Config = {
       title: 'DedMax',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/logo.jpg',
+        src: 'img/logo2.png',
       },
       items: [
         {
