@@ -2,50 +2,56 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'DedMax',
-  tagline: 'Полезная инфа от Деда Максима',
+  title: 'Полезная инфа от Деда Максима', // DedMax
+  tagline: '',
   favicon: 'img/favicon.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
-  future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
-  },
+  future: {v4: true,},
 
-  // Set the production url of your site here
   url: 'https://dedmaxtech.github.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'dedmaxtech', // Usually your GitHub org/user name.
-  projectName: 'dedmaxtech.github.io', // Usually your repo name.
+  organizationName: 'dedmaxtech',
+  projectName: 'dedmaxtech.github.io',
   trailingSlash: false,
   onBrokenLinks: 'throw',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'ru',
+    locales: ['ru'],
   },
-
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'c',
+        path: 'c',
+        routeBasePath: 'c',
+        sidebarPath: './sidebars.ts',
+        editUrl: 'https://github.com/DedMaxTech/dedmaxtech.github.io/tree/main',
+        showLastUpdateTime: true,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'python',
+        path: 'python',
+        routeBasePath: 'python',
+        sidebarPath: './sidebars.ts',
+        editUrl: 'https://github.com/DedMaxTech/dedmaxtech.github.io/tree/main',
+        showLastUpdateTime: true,
+      },
+    ],
+    // при необходимости добавляйте другие языки по аналогии
+  ],
   presets: [
     [
       'classic',
       {
-        docs: {
-          sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/DedMaxTech/dedmaxtech.github.io',
-        },
+        docs: false,
         blog: false,
         theme: {
           customCss: './src/css/custom.css',
@@ -56,73 +62,42 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/logo.png',
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
       title: 'DedMax',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo2.png',
+        alt: 'My Logo',
+        src: 'img/logo.png',
+        srcDark: 'img/logo_dark.png'
       },
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          docsPluginId: 'c',
+          sidebarId: 'cSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Сишка',
         },
+        // пункт меню для Python
         {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
+          type: 'docSidebar',
+          docsPluginId: 'python',
+          sidebarId: 'pythonSidebar',
+          position: 'left',
+          label: 'Python',
         },
+        // {
+        //   href: 'https://github.com/DedMaxTech/dedmaxtech.github.io',
+        //   label: 'GitHub',
+        //   position: 'right',
+        // },
       ],
     },
     footer: {
       style: 'dark',
-      // links: [
-      //   {
-      //     title: 'Docs',
-      //     items: [
-      //       {
-      //         label: 'Tutorial',
-      //         to: '/docs/intro',
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     title: 'Community',
-      //     items: [
-      //       {
-      //         label: 'Stack Overflow',
-      //         href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-      //       },
-      //       {
-      //         label: 'Discord',
-      //         href: 'https://discordapp.com/invite/docusaurus',
-      //       },
-      //       {
-      //         label: 'X',
-      //         href: 'https://x.com/docusaurus',
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     title: 'More',
-      //     items: [
-      //       {
-      //         label: 'Blog',
-      //         to: '/blog',
-      //       },
-      //       {
-      //         label: 'GitHub',
-      //         href: 'https://github.com/facebook/docusaurus',
-      //       },
-      //     ],
-      //   },
-      // ],
       copyright: `Copyright © ${new Date().getFullYear()} DedMax`,
     },
     prism: {

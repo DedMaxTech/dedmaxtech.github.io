@@ -26,11 +26,17 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={`${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main className={styles.heroBanner}>
-        Потом тут будет нормальный самописный сайт
+        <h2>Здесь будет сборник какой нибудь полезной информации и самописных гайдов</h2>
+        <p>Потом тут будет нормальный самописный сайт, а пока что:</p>
+        <Link
+            className="button button--primary button--lg"
+            to="/docs/intro">
+            Начало работы с сишкой
+          </Link>
       </main>
     </Layout>
   );
