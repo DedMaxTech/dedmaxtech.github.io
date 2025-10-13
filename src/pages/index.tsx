@@ -34,7 +34,7 @@ export default function Home(): ReactNode {
         <p>Потом тут будет нормальный самописный сайт, а пока что:</p>
         <Link
             className="button button--primary button--lg"
-            to="/c/intro">
+            to="/guides/c/intro">
             Начало работы с сишкой
           </Link>
       </main>
