@@ -30,6 +30,7 @@ const config: Config = {
           routeBasePath: 'guides',         // => /guide
           path: 'docs',                   // папка с доками
           sidebarPath: './sidebars.ts',
+          showLastUpdateTime: true,
           editUrl: 'https://github.com/DedMaxTech/dedmaxtech.github.io',
           async sidebarItemsGenerator(args) {
           const items = await args.defaultSidebarItemsGenerator(args);
