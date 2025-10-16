@@ -2,6 +2,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 const config: Config = {
   title: 'DedMax Guides', // DedMax
@@ -22,6 +24,10 @@ const config: Config = {
     defaultLocale: 'ru',
     locales: ['ru'],
   },
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
   presets: [
     [
       'classic',
@@ -32,9 +38,11 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           showLastUpdateTime: true,
           editUrl: 'https://github.com/DedMaxTech/dedmaxtech.github.io',
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
           async sidebarItemsGenerator(args) {
           const items = await args.defaultSidebarItemsGenerator(args);
-
+          
           function fix(items) {
             for (const it of items) {
               if (it.type === 'category') {
@@ -113,6 +121,7 @@ const config: Config = {
         // },
       ],
     },
+    
     footer: {
       style: 'dark',
       copyright: `Copyright © ${new Date().getFullYear()} DedMax`,
@@ -122,6 +131,15 @@ const config: Config = {
       darkTheme: prismThemes.oneDark,
     },
   } satisfies Preset.ThemeConfig,
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+      crossorigin: 'anonymous',
+    },
+  ],
 };
 
 export default config;
